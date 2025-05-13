@@ -1,13 +1,3 @@
-const CreateLogoScreen = (imgLink, father) => {
-    const container = document.createElement('div');
-    container.classList.add('container');
-    const img = document.createElement('img');
-    img.setAttribute('src', imgLink);
-    img.classList.add('img-logo-screen');
-    container.appendChild(img);
-    document.querySelector(father).appendChild(container);
-}
-
 const CreateTitle = (title, style, father) => {
 
     const ttl = document.createElement('h1');
@@ -37,6 +27,18 @@ const CreateBigNumbers = (value, style, father) => {
     document.querySelector(father).appendChild(bigNumber);
 }
 
+const CreateInput = (style, father) => {
+    const input = document.createElement('input');
+    input.classList.add(style);
+    document.querySelector(father).appendChild(input);
+}
+
+const CreateTimeInput = (style, father) => {
+    const timeInput = document.createElement('div');
+    timeInput.classList.add(style);
+    document.querySelector(father).appendChild(timeInput);
+}
+
 const CreateButton = (value, style, father) => {
     const btn = document.createElement('button');
     btn.classList.add(style);
@@ -51,3 +53,14 @@ CreateLabel('Saldo mês', 'label', '.data-box-grid');
 CreateLabel('Saldo total', 'label', '.data-box-grid');
 CreateBigNumbers(value = '05:30h', style = 'positive', '.data-box-grid');
 CreateBigNumbers(value = '11:40h', style = 'negative', '.data-box-grid');
+CreateTitle('Registrar ponto', 'sub-title', '.container');
+CreateDataBox('data-box', '.container');
+CreateLabel(text = 'Terça-feira, 13 de maio de 2025', 'label', '.data-box');
+CreateTimeInput('time-input', '.data-box');
+CreateTitle(title = 'Entrada', 'sub-title', '.time-input');
+CreateInput('input', '.time-input');
+CreateTitle(title = ':', 'sub-title', '.time-input');
+CreateInput('input', '.time-input');
+CreateTitle(title = 'h', 'sub-title', '.time-input');
+CreateTitle(title = '', 'sub-title', '.time-input');
+CreateButton('Resgistrar', 'btn', '.time-input');
