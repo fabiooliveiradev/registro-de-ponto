@@ -1,3 +1,5 @@
+const tableHeaders = ['Dia', 'Entrada', 'Saída', 'Entrada', 'Saída'];
+
 const CreateTitle = (title, style, father) => {
 
     const ttl = document.createElement('h1');
@@ -46,6 +48,14 @@ const CreateButton = (value, style, father) => {
     document.querySelector(father).appendChild(btn);
 }
 
+const CreateTable = (boxStyle, father, headers, headerStyle) => {
+    const titleFather = `.${boxStyle}`;
+    CreateDataBox(boxStyle, father);
+    headers.forEach(header => {
+        CreateTitle(header, headerStyle, titleFather);
+    });
+}
+
 CreateTitle('Registro de Ponto', 'title', '.container');
 CreateTitle('Dashboard', 'sub-title', '.container');
 CreateDataBox('data-box-grid', '.container');
@@ -64,3 +74,5 @@ CreateInput('input', '.time-input');
 CreateTitle(title = 'h', 'sub-title', '.time-input');
 CreateTitle(title = '', 'sub-title', '.time-input');
 CreateButton('Resgistrar', 'btn', '.time-input');
+CreateTitle('Folha de Ponto', 'sub-title', '.container');
+CreateTable('data-box-table', '.container', tableHeaders, 'sub-title-small');
